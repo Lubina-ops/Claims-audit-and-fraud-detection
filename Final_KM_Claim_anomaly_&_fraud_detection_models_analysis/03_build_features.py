@@ -214,7 +214,9 @@ def run(input_path=INPUT_FILE, output_path=OUTPUT_FILE, save=True):
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
         df.to_parquet(output_path, index=False)
         print(f"[save] -> {output_path}  ({len(df):,} rows)")
+        df.to_excel(output_path.replace('.parquet', '.xlsx'), index=False) # NEW
 
+        print(f"[save] -> {output_path} (+ .xlsx) ({len(df):,} rows)")
     return df
 
 
